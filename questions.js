@@ -1,40 +1,20 @@
   // Question array.
-  var questions = [
-    { q: "DOM stands for: Document Object Model?", a: "t" },
-    { q: "Punctuation does not matter in Coding.", a: "f" },
-    { q: "HTML stands for: HyperText Markup Language?", a: "t" },
-    { q: "Do hummingbirds like to eat burgers?", a: "f" }
-  ];
-  
-  // Start the game with a score of 0.
-  var score = 0;
-  
-  // Loop over every question. 
-  for (var i = 0; i < questions.length; i++) {
-    // Display question and ask for Ok/Cancel 
-    var answer = confirm(questions[i].q);
-  
-    // true or false
-    if ((answer === true && questions[i].a === "t") ||
-      (answer === false && questions[i].a === "f")) {
-      // increase score
-      score++;
-    }
+
+ var questions = [
+  {
+    title: 'The condition in an if / else statement is enclosed within ____.',
+    choices: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
+    answer: 'parentheses'
+  },
+  {
+    title: 'What does HTML stand for?',
+    choices: ['Hello There My Love', 'Howard Technical Military Library', 'Hypertext Markup Language.'],
+    answer: 'Hypertext Markup Language'
+  },
+  {
+    title: 'What is a for loop used for?',
+    choices: ['looping through a sequence', 'changing background color', 'adding a link to your html'],
+    answer: 'looping through a sequence'
   }
-  // total at the end.
-  alert("You got " + score + "/" + questions.length);
-  
-  var questions = [
-    {
-      title: 'Commonly used data types DO NOT include:',
-      choices: ['strings', 'booleans', 'alerts', 'numbers'],
-      answer: 'alerts'
-    },
-    {
-      title: 'The condition in an if / else statement is enclosed within ____.',
-      choices: ['quotes', 'curly brackets', 'parentheses', 'square brackets'],
-      answer: 'parentheses'
-    }
-    // etc.
-  ];
-  
+];
+

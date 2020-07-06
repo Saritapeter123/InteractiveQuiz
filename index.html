@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Google Fonts Link (PT Serif)-->
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <!--Bootstrap CSS Link-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--Personal CSS Link-->
@@ -15,14 +17,31 @@
 
 <body>
 
-    <h2 class="time"></h2>
+    <h2 class="timer"></h2>
     <div id="main"></div>
-    
-    
+
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="questions">Questions</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">answer 1</button>
+                <button class="btn">answer 2</button>
+                <button class="btn">answer 3</button>
+                <button class="btn">answer 4</button>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Click here to Start!</button>
+        </div>
+    </div>
+
+
+
     <!--Bootstrap jQuery Link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--Personal Javascript Link-->    
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
+    
    
 </body>
 </html>

@@ -1,18 +1,41 @@
-var timeEl = document.querySelector(".time");
-var mainEl = document.getElementById("main");
+var startButton = document.getElementById("start-btn")
+var questionContainer = document.getElementById("question-container")
+var questionEl = document.getElementById("question")
+var answerButtonsElement = document.getElementById("answer-buttons")
 
-var secondsLeft = 75;
+let shuffledQuestions, currentQuestionIndex
 
-function setTime() {
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = secondsLeft + " seconds left.";
+startButton.addEventListener("click", startGame)
 
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      timeEl.textContent = secondsLeft + " Times Up!";
-    }
 
-  }, 1000);
+function startGame() {
+  startButton.classList.add("hide")
+  shuffledQuestions = questions.sort(() => Math.random() -.5)
+  currentQuestionIndex = 0
+  questionContainer.classList.remove("hide")
+  setNextQuestion()
 }
-setTime();
+
+function setNextQuestion() {
+  showQuestion(shuffledQuestions[currentQuestionIndex])
+}
+
+function showQuestion(question) {
+  questionEl.innerText = question.question
+}
+
+function selectAnswer() {
+
+}
+
+var questions = [
+  {
+    question: 'What does DOM stand for?',
+    answer: [
+      { text: 'Document Object Model', correct: true },
+      { text: 'Dividing Object Model', correct: false },
+      { text: 'Display Object Model', correct: false },
+      { text: 'Driving Object Model', correct: false }
+    ]
+  }
+];
