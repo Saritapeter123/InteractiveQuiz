@@ -10,7 +10,7 @@ startButton.addEventListener("click", startGame)
 
 function startGame() {
   startButton.classList.add("hide")
-  shuffledQuestions = questions.sort(() => Math.random() -.5)
+  shuffledQuestions = question.sort(() => Math.random() -.5)
   currentQuestionIndex = 0
   questionContainer.classList.remove("hide")
   setNextQuestion()
@@ -28,7 +28,7 @@ function selectAnswer() {
 
 }
 
-var questions = [
+var question = [
   {
     question: 'What does DOM stand for?',
     answer: [
