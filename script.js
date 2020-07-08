@@ -1,12 +1,14 @@
-var startButton = document.getElementById("start-btn")
-var questionContainer = document.getElementById("question-container")
-var questionEl = document.getElementById("question")
-var answerButtonsElement = document.getElementById("answer-buttons")
+var startButton = document.getElementById("start-btn");
+var questionContainer = document.getElementById("question-container");
+var questionEl = document.getElementById("question");
+var answerButtonsElement = document.getElementById("answer-buttons");
 var ans1Button = document.getElementById("ans1");
 var ans2Button = document.getElementById("ans2");
 var ans3Button = document.getElementById("ans3");
 var ans4Button = document.getElementById("ans4");
-let shuffledQuestions, currentQuestionIndex, currentAnswer;
+let shuffledQuestions, currentQuestionIndex, currentAnswer, score, timer;
+var highscores = [];
+var initials = '';
 startButton.addEventListener("click", startGame)
 ans1Button.addEventListener("click", selectAnswer)
 ans2Button.addEventListener("click", selectAnswer)
@@ -25,14 +27,36 @@ var interval = setInterval(function(){
 }, 1000);
 
 function startGame() {
+  initials = window.prompt("Enter your name or initials: ");
   startButton.classList.add("hide")
   shuffledQuestions = questions.sort(() => Math.random() -.5)
   currentQuestionIndex = 0
+  score = 0
   questionContainer.classList.remove("hide")
   setNextQuestion()
+  startTimer();
+}
+
+function endGame() {
+  setScore();
+  showScore();
+  startGame();
+}
+
+function setScore() {
+  highscores.push({initials: initials, score: score});
+}
+
+function showScore() {
+  for (s of highscores)
+    alert(`Scores:\ninitials: ${s.initials}: ${s.score}`);
 }
 
 function setNextQuestion() {
+  if (currentQuestionIndex >= questions.length) {
+    alert("No more questions!");
+    endGame();
+  }
   var next_question = shuffledQuestions[currentQuestionIndex];
   showQuestion(next_question);
   setNextAnswers(next_question);
@@ -53,10 +77,13 @@ function showQuestion(question) {
 function selectAnswer() {
   if (this.innerText == currentAnswer) {
     alert("Correct!");
+    score += 1;
     setNextQuestion()
   }
   else {
-    alert("Try again :(");
+    alert("Wrong");
+    timer -= 5;
+    setNextQuestion();
   }
 
 }
